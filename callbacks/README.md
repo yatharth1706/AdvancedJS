@@ -12,5 +12,5 @@
 
 
 #### Resource
-* Video link ![Callbacks](https://youtu.be/uS-iRCStP9E)
-* ![Error handling in Callbacks](https://youtu.be/LLAmuNbtB_A)
+* Video link [Callbacks](https://youtu.be/uS-iRCStP9E)
+* [Error handling in Callbacks](https://youtu.be/LLAmuNbtB_A)
