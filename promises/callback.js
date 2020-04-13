@@ -1,50 +1,36 @@
 
 // load script dynamically to index.html
 
-function load(source , callback){
+function load(source){
 
-	const script = document.createElement('script');
-	script.src = source;
+	return new Promise((resolve,reject)=>{
+		const script = document.createElement('script');
+		script.src = source;
 
-	// when script is fully loaded we want to notify by returning callback function
-	script.onload = () => {
-		return callback(null,script);
-	}
+		// when script is fully loaded we want to notify by returning callback function
+		script.onload = () => {
+			return resolve(script);
+		}
 
-	// if there is error we will return callback with error
+		// if there is error we will return callback with error
 
-	script.onerror = () => {
-		return callback(new Error("Sorry there is some error! Script is not loaded!"))
-	}
+		script.onerror = () => {
+			return reject(new Error("Sorry there is some error! Script is not loaded!"))
+		}
 
 
-	document.head.append(script);
+		document.head.append(script);
+	})
 }
 
 // asynchronous function
-load('dynamicScriptt.js' , (error,script) => {
-	
-	if(error){
-		handle(error);
-	}else{
-		hello();
-		load('script2.js', (error,script) => {
-
-			if(error){
-				handle(error);
-			}else{
-				// any function
-				load('script3.js', (error, script) => {
-					if(error){
-						handle(error);
-					}else{
-						// call something
-					}
-				})
-			}
-		})
-	}
-});
+load('dynamicScript.js')
+.then((result)=>{
+	hello();
+})
+.catch((error)=>{
+	handle(error);
+})
 
 
 function handle(error){
