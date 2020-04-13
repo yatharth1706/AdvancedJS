@@ -40,3 +40,52 @@ The function passed to new Promise is called the executor. When new Promise is c
   
   ![Promise States](https://yatharth1706.github.io/assets/promise1.PNG)
   
+### Methods on Promise
+
+1. **then**: 
+Syntax:
+```js
+      promise.then(
+        function(result) { /* handle a successful result */ },
+        function(error) { /* handle an error */ }
+      );
+```
+
+Some Examples:
+```js
+      let promise = new Promise(function(resolve, reject) {
+        setTimeout(() => resolve("done!"), 1000);
+      });
+
+      // resolve runs the first function in .then
+      promise.then(
+        result => alert(result), // shows "done!" after 1 second
+        error => alert(error) // doesn't run
+      );
+```
+
+
+2. **catch**:
+
+Example:
+```js
+      let promise = new Promise((resolve, reject) => {
+        setTimeout(() => reject(new Error("Whoops!")), 1000);
+      });
+
+      // .catch(f) is the same as promise.then(null, f)
+      promise.catch(alert);
+      
+```
+
+3. **finally**:
+
+Example:
+```js
+      new Promise((resolve, reject) => {
+        setTimeout(() => resolve("result"), 2000)
+      })
+      .finally(() => alert("Promise ready"))
+      .then(result => alert(result));
+      
+```
