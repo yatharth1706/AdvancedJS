@@ -6,6 +6,7 @@
 - [ ] How to create a promise object
 - [ ] Resolve and Reject callbacks
 - [ ] Properties of Promise
+- [ ] Implementation
 
 
 ### What are promises?
