@@ -2,11 +2,11 @@
 
 ### Concepts
 
-- [ ] What are promise?
-- [ ] How to create a promise object
-- [ ] Resolve and Reject callbacks
-- [ ] Properties of Promise
-- [ ] Implementation
+- [x] What are promise?
+- [x] How to create a promise object
+- [x] Resolve and Reject callbacks
+- [x] Properties of Promise
+- [x] Implementation
 
 
 ### What are promises?

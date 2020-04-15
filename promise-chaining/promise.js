@@ -25,15 +25,49 @@ function load(source){
 
 // asynchronous function
 load('dynamicScript.js')
+.then((result)=>{ return load('script2.js');})
+.then((result)=>{ return load('script3.js'); })
 .then((result)=>{
 	hello();
+	script2();
+	script3();
+	throw(new Error('sorry errorr!'));
 })
 .catch((error)=>{
-	handle(error);
+	alert(error);
 })
 
 function handle(error){
 	alert(error);
 }
+
+
+
+// new Promise((resolve, reject) => {
+// 	// asynchronous function
+
+// 	setTimeout(()=>{
+// 		resolve(1);
+// 	},1000);
+// })
+// .then((result)=>{
+// 	alert(result);
+// 	return result*4;
+// })
+// .then((result)=>{
+// 	alert(result);
+// 	return result*4;
+// })
+// .then((result)=>{
+// 	alert(result);
+// })
+
+
+
+
+
+
+
+
 
 
